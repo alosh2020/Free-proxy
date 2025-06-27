@@ -5,17 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>InjectProxyX - بروكسيات حقن مجانية</title>
   <style>
-    body {background:#121212;color:#eee;font-family:Tajawal,sans-serif;margin:0;padding:0;line-height:1.6;}
-    header {background:#1e88e5;padding:20px;text-align:center;}
-    header h1 {margin:0;font-size:24px;color:#fff;}
-    main {padding:20px;max-width:800px;margin:auto;}
-    .section {margin-bottom:30px;}
-    .proxy-list {background:#1e1e1e;padding:15px;border-radius:8px;}
-    .proxy-list pre {background:#2c2c2c;padding:10px;border-radius:6px;overflow-x:auto;color:#0f0;}
-    a.button {display:inline-block;background:#43a047;color:#fff;padding:10px 20px;margin:10px 0;text-decoration:none;border-radius:6px;transition:0.3s;}
-    a.button:hover {background:#388e3c;}
-    footer {text-align:center;color:#888;padding:20px;font-size:14px;border-top:1px solid #333;}
-    iframe.ad {margin-top:20px;width:100%;max-width:728px;height:90px;border:none;display:block;margin-left:auto;margin-right:auto;}
+    body {
+      background:#121212; color:#eee; font-family:Tajawal,sans-serif; margin:0; padding:0; line-height:1.6;
+    }
+    header {
+      background:#1e88e5; padding:20px; text-align:center;
+    }
+    header h1 {
+      margin:0; font-size:24px; color:#fff;
+    }
+    main {
+      padding:20px; max-width:800px; margin:auto;
+    }
+    .section {
+      margin-bottom:30px;
+    }
+    .proxy-box {
+      background:#1e1e1e; padding:15px; border-radius:8px; margin-bottom: 10px; cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .proxy-box:hover {
+      background: #333;
+    }
+    .proxy-title {
+      font-weight: bold;
+      font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #43a047;
+    }
+    .btn-toggle {
+      background: #43a047;
+      border: none;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.3s ease;
+    }
+    .btn-toggle:hover {
+      background: #388e3c;
+    }
+    .details {
+      margin-top: 10px;
+      display: none;
+      background: #2c2c2c;
+      padding: 10px;
+      border-radius: 6px;
+      font-family: monospace;
+      white-space: pre-line;
+      color: #0f0;
+    }
+    a.button {
+      display:inline-block; background:#43a047; color:#fff; padding:10px 20px; margin:10px 0; text-decoration:none; border-radius:6px; transition:0.3s;
+    }
+    a.button:hover {
+      background:#388e3c;
+    }
+    footer {
+      text-align:center; color:#888; padding:20px; font-size:14px; border-top:1px solid #333;
+    }
   </style>
 </head>
 <body>
@@ -25,25 +76,48 @@
 <main>
   <section class="section">
     <h2>🚀 بروكسيات جاهزة للنسخ</h2>
-    <div class="proxy-list">
-      <pre>
-http://142.132.233.186:3128
-http://103.180.120.233:8080
-http://188.166.56.246:3128
-http://51.158.68.133:8811
-http://161.35.70.249:3128
-http://134.209.29.120:3128
-http://103.48.68.109:83
-http://20.206.106.192:3128
-http://64.225.8.174:9981
-http://138.68.60.8:8080
-http://159.65.69.186:9300
-http://51.79.50.31:9300
-http://103.144.18.98:8080
-      </pre>
-      <p><strong>👤 اسم المستخدم:</strong> freeuser</p>
-      <p><strong>🔑 كلمة المرور:</strong> 12345678</p>
+
+    <div class="proxy-box">
+      <div class="proxy-title">
+        البروكسي 1
+        <button class="btn-toggle" onclick="toggleDetails(event)">اضغط هنا</button>
+      </div>
+      <div class="details">
+IP: 142.132.233.186
+Port: 3128
+User: freeuser
+Pass: 12345678
+      </div>
     </div>
+
+    <div class="proxy-box">
+      <div class="proxy-title">
+        البروكسي 2
+        <button class="btn-toggle" onclick="toggleDetails(event)">اضغط هنا</button>
+      </div>
+      <div class="details">
+IP: 103.180.120.233
+Port: 8080
+User: freeuser
+Pass: 12345678
+      </div>
+    </div>
+
+    <div class="proxy-box">
+      <div class="proxy-title">
+        البروكسي 3
+        <button class="btn-toggle" onclick="toggleDetails(event)">اضغط هنا</button>
+      </div>
+      <div class="details">
+IP: 188.166.56.246
+Port: 3128
+User: freeuser
+Pass: 12345678
+      </div>
+    </div>
+
+    <!-- أضف المزيد حسب حاجتك بنفس النمط -->
+
   </section>
 
   <section class="section">
@@ -55,12 +129,26 @@ http://103.144.18.98:8080
     <h2>📢 تابع قناتنا على تيليغرام</h2>
     <a href="https://t.me/alosh2020sy" target="_blank" class="button">@alosh2020sy</a>
   </section>
-  
+</main>
+
+<footer>
   &copy; 2025 InjectProxyX - جميع الحقوق محفوظة | تصميم: Alosh
 </footer>
+
+<script>
+  function toggleDetails(event) {
+    event.stopPropagation();
+    const btn = event.target;
+    const details = btn.parentElement.nextElementSibling;
+    if(details.style.display === 'block') {
+      details.style.display = 'none';
+      btn.textContent = 'اضغط هنا';
+    } else {
+      details.style.display = 'block';
+      btn.textContent = 'اخفي التفاصيل';
+    }
+  }
+</script>
 </body>
 </html>
-<div id="frame" style="width: 100%;margin: auto;background: rgba(0, 0, 0, 0.50);position: relative; z-index: 99998;">
-          <iframe data-aa='2400492' src='//acceptable.a-ads.com/2400492/?size=Adaptive'
-                            style='border:0; padding:0; width:70%; height:auto; overflow:hidden;display: block;margin: auto'></iframe>
-        </div>
+
